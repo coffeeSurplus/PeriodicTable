@@ -1,0 +1,113 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:viewModel="clr-namespace:PeriodicTable.Source.ViewModels">
+	<DataTemplate DataType="{x:Type viewModel:MainWindowViewModel}" x:Key="ElementView">
+		<ScrollViewer>
+			<StackPanel>
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="40"/>
+						<ColumnDefinition Width="1*"/>
+						<ColumnDefinition Width="40"/>
+					</Grid.ColumnDefinitions>
+					<Button Grid.Column="0" Style="{StaticResource ResourceKey=PageLeftButton}" Command="{Binding Path=PageLeftCommand}"/>
+					<Border Grid.Column="1" Style="{StaticResource ResourceKey=ElementNamePanel}">
+						<Border.Background>
+							<MultiBinding Converter="{StaticResource ResourceKey=PeriodicTableCategoryColour}">
+								<Binding Path="CategoryMode"/>
+								<Binding Path="Temperature"/>
+								<Binding Path="Category"/>
+								<Binding Path="Block"/>
+								<Binding Path="Group"/>
+								<Binding Path="Period"/>
+								<Binding Path="ElementModel.Category"/>
+								<Binding Path="ElementModel.MeltingPoint"/>
+								<Binding Path="ElementModel.BoilingPoint"/>
+								<Binding Path="ElementModel.Block"/>
+								<Binding Path="ElementModel.Group"/>
+								<Binding Path="ElementModel.Period"/>
+							</MultiBinding>
+						</Border.Background>
+						<TextBlock Style="{StaticResource ResourceKey=ElementName}">
+							<TextBlock.Text>
+								<MultiBinding Converter="{StaticResource ResourceKey=ElementNameSymbol}">
+									<Binding Path="ElementModel.Name"/>
+									<Binding Path="ElementModel.Symbol"/>
+								</MultiBinding>
+							</TextBlock.Text>
+						</TextBlock>
+					</Border>
+					<Button Grid.Column="2" Style="{StaticResource ResourceKey=PageRightButton}" Command="{Binding Path=PageRightCommand}"/>
+				</Grid>
+				<Rectangle Style="{StaticResource ResourceKey=Underline}"/>
+				<TextBlock Style="{StaticResource ResourceKey=ElementHeader}" Text="Basic properties:"/>
+				<TextBlock Style="{StaticResource ResourceKey=ElementText}" Text="{Binding Path=ElementModel.AtomicNumber, Converter={StaticResource ResourceKey=ElementAtomicNumber}}"/>
+				<TextBlock Style="{StaticResource ResourceKey=ElementText}" Text="{Binding Path=ElementModel.AtomicMass, Converter={StaticResource ResourceKey=ElementAtomicMass}}"/>
+				<TextBlock Style="{StaticResource ResourceKey=ElementText}" Text="{Binding Path=ElementModel.Group, Converter={StaticResource ResourceKey=ElementGroup}}"/>
+				<TextBlock Style="{StaticResource ResourceKey=ElementText}" Text="{Binding Path=ElementModel.Period, Converter={StaticResource ResourceKey=ElementPeriod}}"/>
+				<TextBlock Style="{StaticResource ResourceKey=ElementText}" Text="{Binding Path=ElementModel.Category, Converter={StaticResource ResourceKey=ElementCategory}}"/>
+				<TextBlock Style="{StaticResource ResourceKey=ElementText}" Text="{Binding Path=ElementModel.Block, Converter={StaticResource ResourceKey=ElementBlock}}"/>
+				<Rectangle Style="{StaticResource ResourceKey=Underline}"/>
+				<TextBlock Style="{StaticResource ResourceKey=ElementHeader}" Text="Physical properties:"/>
+				<TextBlock Style="{StaticResource ResourceKey=ElementText}" Text="{Binding Path=ElementModel.RoomTemperatureState, Converter={StaticResource ResourceKey=ElementRoomTemperatureState}}"/>
+				<TextBlock Style="{StaticResource ResourceKey=ElementText}" Text="{Binding Path=ElementModel.Appearance, Converter={StaticResource ResourceKey=ElementAppearance}}"/>
+				<TextBlock Style="{StaticResource ResourceKey=ElementText}" Text="{Binding Path=ElementModel.MeltingPoint, Converter={StaticResource ResourceKey=ElementMeltingPoint}}"/>
+				<TextBlock Style="{StaticResource ResourceKey=ElementText}" Text="{Binding Path=ElementModel.BoilingPoint, Converter={StaticResource ResourceKey=ElementBoilingPoint}}"/>
+				<TextBlock Style="{StaticResource ResourceKey=ElementText}" Text="{Binding Path=ElementModel.Density, Converter={StaticResource ResourceKey=ElementDensity}}"/>
+				<TextBlock Style="{StaticResource ResourceKey=ElementText}" Text="{Binding Path=ElementModel.AtomicRadius, Converter={StaticResource ResourceKey=ElementAtomicRadius}}"/>
+				<Rectangle Style="{StaticResource ResourceKey=Underline}"/>
+				<TextBlock Style="{StaticResource ResourceKey=ElementHeader}" Text="Chemical properties:"/>
+				<TextBlock Style="{StaticResource ResourceKey=ElementText}" Text="{Binding Path=ElementModel.ElectronConfiguration, Converter={StaticResource ResourceKey=ElementElectronConfiguration}}"/>
+				<TextBlock Style="{StaticResource ResourceKey=ElementText}" Text="{Binding Path=ElementModel.Electronegativity, Converter={StaticResource ResourceKey=ElementElectronegativity}}"/>
+				<TextBlock Style="{StaticResource ResourceKey=ElementText}" Text="{Binding Path=ElementModel.IonisationEnergy, Converter={StaticResource ResourceKey=ElementIonisationEnergy}}"/>
+				<TextBlock Style="{StaticResource ResourceKey=ElementText}" Text="{Binding Path=ElementModel.OxidationStates, Converter={StaticResource ResourceKey=ElementOxidationStates}}"/>
+				<Rectangle Style="{StaticResource ResourceKey=Underline}"/>
+				<TextBlock Style="{StaticResource ResourceKey=ElementHeader}" Text="Isotopic properties:"/>
+				<TextBlock Style="{StaticResource ResourceKey=ElementText}" Text="{Binding Path=ElementModel.Isotopes, Converter={StaticResource ResourceKey=ElementIsotopes}}"/>
+				<TextBlock Style="{StaticResource ResourceKey=ElementText}" Text="{Binding Path=ElementModel.KeyIsotopes, Converter={StaticResource ResourceKey=ElementKeyIsotopes}}"/>
+				<Rectangle Style="{StaticResource ResourceKey=Underline}"/>
+				<TextBlock Style="{StaticResource ResourceKey=ElementHeader}" Text="Other properties:"/>
+				<TextBlock Style="{StaticResource ResourceKey=ElementText}" Text="{Binding Path=ElementModel.Etymology, Converter={StaticResource ResourceKey=ElementEtymology}}"/>
+				<TextBlock Style="{StaticResource ResourceKey=ElementText}" Text="{Binding Path=ElementModel.DiscoveryYear, Converter={StaticResource ResourceKey=ElementDiscoveryYear}}"/>
+				<TextBlock Style="{StaticResource ResourceKey=ElementText}" Text="{Binding Path=ElementModel.Discoverer, Converter={StaticResource ResourceKey=ElementDiscoverer}}"/>
+				<TextBlock Style="{StaticResource ResourceKey=ElementText}" Text="{Binding Path=ElementModel.Uses, Converter={StaticResource ResourceKey=ElementUses}}"/>
+				<Rectangle Style="{StaticResource ResourceKey=Underline}"/>
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="40"/>
+						<ColumnDefinition Width="1*"/>
+						<ColumnDefinition Width="40"/>
+					</Grid.ColumnDefinitions>
+					<Button Grid.Column="0" Style="{StaticResource ResourceKey=PageLeftButton}" Command="{Binding Path=PageLeftCommand}"/>
+					<Border Grid.Column="1" Style="{StaticResource ResourceKey=ElementNamePanel}">
+						<Border.Background>
+							<MultiBinding Converter="{StaticResource ResourceKey=PeriodicTableCategoryColour}">
+								<Binding Path="CategoryMode"/>
+								<Binding Path="Temperature"/>
+								<Binding Path="Category"/>
+								<Binding Path="Block"/>
+								<Binding Path="Group"/>
+								<Binding Path="Period"/>
+								<Binding Path="ElementModel.Category"/>
+								<Binding Path="ElementModel.MeltingPoint"/>
+								<Binding Path="ElementModel.BoilingPoint"/>
+								<Binding Path="ElementModel.Block"/>
+								<Binding Path="ElementModel.Group"/>
+								<Binding Path="ElementModel.Period"/>
+							</MultiBinding>
+						</Border.Background>
+						<TextBlock Style="{StaticResource ResourceKey=ElementName}">
+							<TextBlock.Text>
+								<MultiBinding Converter="{StaticResource ResourceKey=ElementNameSymbol}">
+									<Binding Path="ElementModel.Name"/>
+									<Binding Path="ElementModel.Symbol"/>
+								</MultiBinding>
+							</TextBlock.Text>
+						</TextBlock>
+					</Border>
+					<Button Grid.Column="2" Style="{StaticResource ResourceKey=PageRightButton}" Command="{Binding Path=PageRightCommand}"/>
+				</Grid>
+			</StackPanel>
+		</ScrollViewer>
+	</DataTemplate>
+</ResourceDictionary>

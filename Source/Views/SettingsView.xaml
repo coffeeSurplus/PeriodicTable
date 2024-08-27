@@ -1,0 +1,42 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:viewModel="clr-namespace:PeriodicTable.Source.ViewModels">
+	<DataTemplate DataType="{x:Type viewModel:MainWindowViewModel}" x:Key="SettingsView">
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="75"/>
+				<ColumnDefinition Width="75"/>
+				<ColumnDefinition Width="225"/>
+				<ColumnDefinition Width="150"/>
+				<ColumnDefinition Width="150"/>
+				<ColumnDefinition Width="150"/>
+				<ColumnDefinition Width="150"/>
+			</Grid.ColumnDefinitions>
+			<TextBlock Grid.Column="0" Text="grouping:"/>
+			<UniformGrid Grid.Column="1" Rows="2">
+				<RadioButton Content="category" IsChecked="{Binding Path=CategoryMode, Converter={StaticResource ResourceKey=GeneralNullableBoolToBool}}"/>
+				<RadioButton Content="block" IsChecked="{Binding Path=CategoryMode, Converter={StaticResource ResourceKey=GeneralNullableBoolToBoolInverted}}"/>
+			</UniformGrid>
+			<UniformGrid Grid.Column="2" Rows="2">
+				<TextBlock Text="{Binding Path=Temperature, Converter={StaticResource ResourceKey=SettingsTemperatureTextConverter}}"/>
+				<Slider Minimum="-273" Maximum="5727" Value="{Binding Path=Temperature, Converter={StaticResource ResourceKey=SettingsTemperatureConverter}}"/>
+			</UniformGrid>
+			<UniformGrid Grid.Column="3" Rows="2">
+				<TextBlock Text="{Binding Path=Category, Converter={StaticResource ResourceKey=SettingsCategoryTextConverter}}"/>
+				<Slider Minimum="1" Maximum="10" Value="{Binding Path=Category, Converter={StaticResource ResourceKey=SettingsCategoryConverter}}"/>
+			</UniformGrid>
+			<UniformGrid Grid.Column="4" Rows="2">
+				<TextBlock Text="{Binding Path=Block, Converter={StaticResource ResourceKey=SettingsBlockTextConverter}}"/>
+				<Slider Minimum="1" Maximum="4" Value="{Binding Path=Block, Converter={StaticResource ResourceKey=SettingsBlockConverter}}"/>
+			</UniformGrid>
+			<UniformGrid Grid.Column="5" Rows="2">
+				<TextBlock Text="{Binding Path=Group, Converter={StaticResource ResourceKey=SettingsGroupTextConverter}}"/>
+				<Slider Minimum="1" Maximum="20" Value="{Binding Path=Group, Converter={StaticResource ResourceKey=SettingsGroupConverter}}"/>
+			</UniformGrid>
+			<UniformGrid Grid.Column="6" Rows="2">
+				<TextBlock Text="{Binding Path=Period, Converter={StaticResource ResourceKey=SettingsPeriodTextConverter}}"/>
+				<Slider Minimum="1" Maximum="7" Value="{Binding Path=Period, Converter={StaticResource ResourceKey=SettingsPeriodConverter}}"/>
+			</UniformGrid>
+		</Grid>
+	</DataTemplate>
+</ResourceDictionary>

@@ -1,0 +1,19 @@
+﻿<Application x:Class="PeriodicTable.Source.Styles.App"
+			xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			StartupUri="/PeriodicTable;component/Source/Views/MainWindowView.xaml">
+	<Application.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="/PeriodicTable;component/Source/Styles/Converters.xaml"/>
+				<ResourceDictionary Source="/PeriodicTable;component/Source/Styles/Defaults.xaml"/>
+				<ResourceDictionary Source="/PeriodicTable;component/Source/Styles/Buttons.xaml"/>
+				<ResourceDictionary Source="/PeriodicTable;component/Source/Styles/Fonts.xaml"/>
+				<ResourceDictionary Source="/PeriodicTable;component/Source/Styles/Panels.xaml"/>
+				<ResourceDictionary Source="/PeriodicTable;component/Source/Views/ElementView.xaml"/>
+				<ResourceDictionary Source="/PeriodicTable;component/Source/Views/PeriodicTableView.xaml"/>
+				<ResourceDictionary Source="/PeriodicTable;component/Source/Views/SettingsView.xaml"/>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Application.Resources>
+</Application>

@@ -1,0 +1,89 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Style TargetType="Button">
+		<Setter Property="Focusable" Value="False"/>
+		<Setter Property="Margin" Value="5"/>
+	</Style>
+	<Style TargetType="Button" x:Key="PageLeftButton">
+		<Setter Property="Focusable" Value="False"/>
+		<Setter Property="Height" Value="40"/>
+		<Setter Property="Width" Value="40"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Button">
+					<Border Background="{TemplateBinding Property=Background}">
+						<Polyline/>
+					</Border>
+					<ControlTemplate.Resources>
+						<Style TargetType="Polyline">
+							<Setter Property="HorizontalAlignment" Value="Center"/>
+							<Setter Property="Points" Value="10,0 0,10 10,20"/>
+							<Setter Property="Stroke" Value="{StaticResource ResourceKey=Foreground}"/>
+							<Setter Property="StrokeThickness" Value="1.5"/>
+							<Setter Property="VerticalAlignment" Value="Center"/>
+						</Style>
+					</ControlTemplate.Resources>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="False">
+							<Setter Property="Background" Value="{StaticResource ResourceKey=Transparent}"/>
+						</Trigger>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter Property="Background" Value="{StaticResource ResourceKey=Hover}"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style TargetType="Button" x:Key="PageRightButton">
+		<Setter Property="Focusable" Value="False"/>
+		<Setter Property="Height" Value="40"/>
+		<Setter Property="Width" Value="40"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Button">
+					<Border Background="{TemplateBinding Property=Background}">
+						<Polyline/>
+					</Border>
+					<ControlTemplate.Resources>
+						<Style TargetType="Polyline">
+							<Setter Property="HorizontalAlignment" Value="Center"/>
+							<Setter Property="Points" Value="0,0 10,10 0,20"/>
+							<Setter Property="Stroke" Value="{StaticResource ResourceKey=Foreground}"/>
+							<Setter Property="StrokeThickness" Value="1.5"/>
+							<Setter Property="VerticalAlignment" Value="Center"/>
+						</Style>
+					</ControlTemplate.Resources>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="False">
+							<Setter Property="Background" Value="{StaticResource ResourceKey=Transparent}"/>
+						</Trigger>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter Property="Background" Value="{StaticResource ResourceKey=Hover}"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style TargetType="Button" x:Key="PeriodicTableElementButton">
+		<Setter Property="Focusable" Value="False"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Button">
+					<ContentPresenter/>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style TargetType="RadioButton">
+		<Setter Property="Focusable" Value="False"/>
+		<Setter Property="VerticalContentAlignment" Value="Center"/>
+	</Style>
+	<Style TargetType="Slider">
+		<Setter Property="IsSnapToTickEnabled" Value="True"/>
+		<Setter Property="Focusable" Value="False"/>
+		<Setter Property="Margin" Value="5,0"/>
+		<Setter Property="TickFrequency" Value="1"/>
+	</Style>
+</ResourceDictionary>
