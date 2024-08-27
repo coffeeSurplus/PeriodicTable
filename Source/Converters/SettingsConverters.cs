@@ -36,7 +36,7 @@ internal class SettingsGroupConverter : IValueConverter
 
 internal class SettingsGroupTextConverter : IValueConverter
 {
-	public object Convert(object value, Type targetType, object parameter, CultureInfo culture) => value != null ? (int)value switch { <= 18 => $"group {(int)value}", 19 => "lanthanide", _ => "actinide" } : "group";
+	public object Convert(object value, Type targetType, object parameter, CultureInfo culture) => value is not null ? (int)value switch { <= 18 => $"group {(int)value}", 19 => "lanthanide", _ => "actinide" } : "group";
 	public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => Binding.DoNothing;
 }
 
@@ -48,7 +48,7 @@ internal class SettingsPeriodConverter : IValueConverter
 
 internal class SettingsPeriodTextConverter : IValueConverter
 {
-	public object Convert(object value, Type targetType, object parameter, CultureInfo culture) => $"period{(value != null ? $" {(int)value}" : string.Empty)}";
+	public object Convert(object value, Type targetType, object parameter, CultureInfo culture) => $"period{(value is not null ? $" {(int)value}" : string.Empty)}";
 	public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => Binding.DoNothing;
 }
 internal class SettingsTemperatureConverter : IValueConverter
@@ -59,6 +59,6 @@ internal class SettingsTemperatureConverter : IValueConverter
 
 internal class SettingsTemperatureTextConverter : IValueConverter
 {
-	public object Convert(object value, Type targetType, object parameter, CultureInfo culture) => value != null ? $"{value} °C • {(int)value + 273} K" : "temperature";
+	public object Convert(object value, Type targetType, object parameter, CultureInfo culture) => value is not null ? $"{value} °C • {(int)value + 273} K" : "temperature";
 	public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => Binding.DoNothing;
 }

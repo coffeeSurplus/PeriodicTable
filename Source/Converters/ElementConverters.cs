@@ -24,7 +24,7 @@ internal class ElementAtomicNumberConverter : IValueConverter
 
 internal class ElementAtomicRadiusConverter : IValueConverter
 {
-	public object Convert(object value, Type targetType, object parameter, CultureInfo culture) => $"• Atomic radius: {(value != null ? $"{value:g3} Å" : "unknown")}";
+	public object Convert(object value, Type targetType, object parameter, CultureInfo culture) => $"• Atomic radius: {(value is not null ? $"{value:g3} Å" : "unknown")}";
 	public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => Binding.DoNothing;
 }
 
@@ -36,7 +36,7 @@ internal class ElementBlockConverter : IValueConverter
 
 internal class ElementBoilingPointConverter : IValueConverter
 {
-	public object Convert(object value, Type targetType, object parameter, CultureInfo culture) => $"• Boiling point: {(value != null ? $"{value:n1} °C • {(double)value + 273:n1} K" : "unknown")}";
+	public object Convert(object value, Type targetType, object parameter, CultureInfo culture) => $"• Boiling point: {(value is not null ? $"{value:n1} °C • {(double)value + 273:n1} K" : "unknown")}";
 	public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => Binding.DoNothing;
 }
 
@@ -48,7 +48,7 @@ internal class ElementCategoryConverter : IValueConverter
 
 internal class ElementDensityConverter : IValueConverter
 {
-	public object Convert(object value, Type targetType, object parameter, CultureInfo culture) => $"• Density: {(value != null ? $"{value:g3} g cm⁻³" : "unknown")}";
+	public object Convert(object value, Type targetType, object parameter, CultureInfo culture) => $"• Density: {(value is not null ? $"{value:g3} g cm⁻³" : "unknown")}";
 	public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => Binding.DoNothing;
 }
 
@@ -60,7 +60,7 @@ internal class ElementDiscovererConverter : IValueConverter
 
 internal class ElementDiscoveryYearConverter : IValueConverter
 {
-	public object Convert(object value, Type targetType, object parameter, CultureInfo culture) => $"• Discovery year: {(value != null ? $"{value} {((int)value is not < 0 ? "CE" : "BCE")}" : "prehistoric")}";
+	public object Convert(object value, Type targetType, object parameter, CultureInfo culture) => $"• Discovery year: {(value is not null ? $"{value} {((int)value is not < 0 ? "CE" : "BCE")}" : "prehistoric")}";
 	public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => Binding.DoNothing;
 }
 
@@ -72,7 +72,7 @@ internal class ElementElectronConfigurationConverter : IValueConverter
 
 internal class ElementElectronegativityConverter : IValueConverter
 {
-	public object Convert(object value, Type targetType, object parameter, CultureInfo culture) => $"• Electronegativity: {(value != null ? $"{value:n2}" : "Unknown")}";
+	public object Convert(object value, Type targetType, object parameter, CultureInfo culture) => $"• Electronegativity: {(value is not null ? $"{value:n2}" : "Unknown")}";
 	public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => Binding.DoNothing;
 }
 
@@ -90,7 +90,7 @@ internal class ElementGroupConverter : IValueConverter
 
 internal class ElementIonisationEnergyConverter : IValueConverter
 {
-	public object Convert(object value, Type targetType, object parameter, CultureInfo culture) => $"• Ionisation energy: {(value != null ? $"{value:n3} kJ mol⁻¹" : "unknown")}";
+	public object Convert(object value, Type targetType, object parameter, CultureInfo culture) => $"• Ionisation energy: {(value is not null ? $"{value:n3} kJ mol⁻¹" : "unknown")}";
 	public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => Binding.DoNothing;
 }
 
@@ -108,7 +108,7 @@ internal class ElementKeyIsotopesConverter : IValueConverter
 
 internal class ElementMeltingPointConverter : IValueConverter
 {
-	public object Convert(object value, Type targetType, object parameter, CultureInfo culture) => $"• Melting point: {(value != null ? $"{value:n1} °C • {(double)value + 273:n1} K" : "unknown")}";
+	public object Convert(object value, Type targetType, object parameter, CultureInfo culture) => $"• Melting point: {(value is not null ? $"{value:n1} °C • {(double)value + 273:n1} K" : "unknown")}";
 	public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => Binding.DoNothing;
 }
 
@@ -120,7 +120,7 @@ internal class ElementNameSymbolConverter : IMultiValueConverter
 
 internal class ElementOxidationStatesConverter : IValueConverter
 {
-	public object Convert(object value, Type targetType, object parameter, CultureInfo culture) => $"• Oxidation states: {(value != null ? string.Join(", ", ((OxidationState[])value).Select(x => (int)x).OrderBy(x => x).Select(x => $"{(x is not <= 0 ? "+" : string.Empty)}{x}")) : "unknown")}";
+	public object Convert(object value, Type targetType, object parameter, CultureInfo culture) => $"• Oxidation states: {(value is not null ? (OxidationState[])value is not [] ? string.Join(", ", ((OxidationState[])value).Select(x => (int)x).OrderBy(x => x).Select(x => $"{(x is not <= 0 ? "+" : string.Empty)}{x}")) : "n/a" : "unknown")}";
 	public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => Binding.DoNothing;
 }
 

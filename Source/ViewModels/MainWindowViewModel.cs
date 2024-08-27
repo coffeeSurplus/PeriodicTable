@@ -27,7 +27,7 @@ internal class MainWindowViewModel : ViewModelBase
 		set
 		{
 			SetValue(ref categoryMode, value);
-			if (value != null)
+			if (value is not null)
 			{
 				Temperature = null;
 				Category = null;
@@ -43,7 +43,7 @@ internal class MainWindowViewModel : ViewModelBase
 		set
 		{
 			SetValue(ref temperature, value);
-			if (value != null)
+			if (value is not null)
 			{
 				CategoryMode = null;
 				Category = null;
@@ -60,7 +60,7 @@ internal class MainWindowViewModel : ViewModelBase
 		set
 		{
 			SetValue(ref category, value);
-			if (value != null)
+			if (value is not null)
 			{
 				CategoryMode = null;
 				Temperature = null;
@@ -76,7 +76,7 @@ internal class MainWindowViewModel : ViewModelBase
 		set
 		{
 			SetValue(ref block, value);
-			if (value != null)
+			if (value is not null)
 			{
 				CategoryMode = null;
 				Temperature = null;
@@ -93,7 +93,7 @@ internal class MainWindowViewModel : ViewModelBase
 		set
 		{
 			SetValue(ref group, value);
-			if (value != null)
+			if (value is not null)
 			{
 				CategoryMode = null;
 				Temperature = null;
@@ -110,7 +110,7 @@ internal class MainWindowViewModel : ViewModelBase
 		set
 		{
 			SetValue(ref period, value);
-			if (value != null)
+			if (value is not null)
 			{
 				CategoryMode = null;
 				Temperature = null;
